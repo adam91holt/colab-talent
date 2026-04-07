@@ -28,7 +28,7 @@ import '../styles/global.css';
     <!-- ==================== STICKY NAV ==================== -->
     <nav id="sticky-nav" class="fixed top-0 left-0 right-0 z-50 bg-[#0D1B2A] border-b border-white/10 transition-all duration-300" style="transform:translateY(-100%);opacity:0;" aria-label="Site navigation">
       <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <span class="text-white font-bold text-lg tracking-tight">Colab Talent</span>
+        <img src="/logo-white.png" alt="Colab Talent" class="h-8 w-auto" />
         <div class="flex items-center gap-4">
           <a href="#employers" class="text-sky-400 hover:text-sky-300 font-semibold text-sm transition-colors px-4 py-2 rounded-lg hover:bg-white/5">For Employers</a>
           <a href="#candidates" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold text-sm transition-colors px-4 py-2 rounded-lg">For Candidates</a>
@@ -305,35 +305,35 @@ import '../styles/global.css';
           <h2 class="text-3xl md:text-5xl font-bold text-dark mb-4">For Employers and Candidates</h2>
           <p class="text-xl text-gray max-w-3xl mx-auto">Choose the path that fits you. Employers can brief us on the role they need to fill, and candidates can join the network in minutes.</p>
         </div>
-        <div class="grid gap-8 lg:grid-cols-2">
-          <div class="bg-gray-light rounded-3xl p-8 lg:p-12 border border-gray-200/70">
+        <div class="grid gap-8 lg:grid-cols-2 items-stretch">
+          <div class="bg-white rounded-3xl p-8 lg:p-12 border border-gray-200 shadow-sm flex flex-col">
             <div class="mb-10">
               <p class="text-sky font-semibold uppercase tracking-widest text-sm mb-4">For Employers</p>
               <h3 class="text-3xl md:text-4xl font-bold text-dark mb-4">Find AI Talent</h3>
               <p class="text-lg text-gray">Tell us the problem you&#39;re solving. We&#39;ll handle the rest.</p>
             </div>
-            <form id="employer-form" class="space-y-4">
+            <form id="employer-form" class="space-y-4 flex flex-col flex-1">
               <input type="text" name="name" placeholder="Your name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
               <input type="text" name="company" placeholder="Company name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
               <input type="email" name="email" placeholder="Work email" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
               <textarea name="message" placeholder="Tell us briefly what you're looking for (optional)" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
-              <button type="submit" class="w-full py-4 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors">Find AI Talent →</button>
+              <button type="submit" class="mt-auto w-full py-4 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors">Find AI Talent →</button>
             </form>
             <div id="employer-success" class="hidden text-center text-green-600 font-medium py-4">✓ Thanks! We&apos;ll be in touch within 48 hours.</div>
             <div id="employer-error" class="hidden text-center text-red-500 py-4">Something went wrong. Please try again.</div>
             <noscript><p class="hidden" aria-hidden="true">Please enable JavaScript to submit the form, or email us at <a href="mailto:hello@thecolab.ai">hello@thecolab.ai</a>.</p></noscript>
           </div>
-          <div id="candidates" class="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-sky/20">
+          <div id="candidates" class="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-gray-200 flex flex-col">
             <div class="mb-10">
               <p class="text-sky font-semibold uppercase tracking-widest text-sm mb-4">For Candidates</p>
               <h3 class="text-3xl md:text-4xl font-bold text-dark mb-4">Join the Colab Talent Network</h3>
               <p class="text-lg text-gray">Register in under 5 minutes. Always free.</p>
             </div>
-            <form id="candidate-form" class="space-y-4">
+            <form id="candidate-form" class="space-y-4 flex flex-col flex-1">
               <input type="text" name="name" placeholder="Your name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
               <input type="email" name="email" placeholder="Email address" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
               <input type="text" name="message" placeholder="Your main AI skill/area (e.g. ML engineering, data science)" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
-              <button type="submit" class="w-full py-4 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors">Join the Network →</button>
+              <button type="submit" class="mt-auto w-full py-4 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors">Join the Network →</button>
             </form>
             <div id="candidate-success" class="hidden text-center text-green-600 font-medium py-4">✓ You&apos;re on the list! We&apos;ll match you with opportunities as they come in.</div>
             <div id="candidate-error" class="hidden text-center text-red-500 py-4">Something went wrong. Please try again.</div>
