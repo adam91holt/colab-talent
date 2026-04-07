@@ -222,47 +222,91 @@ import '../styles/global.css';
       </div>
     </section>
 
-    <!-- ==================== FOR EMPLOYERS ==================== -->
-    <section id="employers" class="bg-white py-24 lg:py-32">
-      <div class="max-w-3xl mx-auto px-6">
-        <div class="text-center mb-12">
-          <p class="text-sky font-semibold uppercase tracking-widest text-sm mb-4">For Employers</p>
-          <h2 class="text-3xl md:text-5xl font-bold text-dark mb-4">Find AI Talent</h2>
-          <p class="text-xl text-gray">Tell us the problem you&#39;re solving. We&#39;ll handle the rest.</p>
+    <!-- ==================== FOR EMPLOYERS + CANDIDATES ==================== -->
+    <section id="employers" class="py-24 lg:py-32" style="background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%);">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sky font-semibold uppercase tracking-widest text-sm mb-4">Get Started</p>
+          <h2 class="text-3xl md:text-5xl font-bold text-dark mb-4">For Employers and Candidates</h2>
+          <p class="text-xl text-gray max-w-3xl mx-auto">Choose the path that fits you. Employers can brief us on the role they need to fill, and candidates can join the network in minutes.</p>
         </div>
-        <div class="bg-gray-light rounded-2xl p-8 lg:p-12">
-          <form id="employer-form" class="space-y-4">
-            <input type="text" name="name" placeholder="Your name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
-            <input type="text" name="company" placeholder="Company name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
-            <input type="email" name="email" placeholder="Work email" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
-            <textarea name="message" placeholder="Tell us briefly what you're looking for (optional)" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
-            <button type="submit" class="w-full py-4 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors">Find AI Talent →</button>
-          </form>
-          <div id="employer-success" class="hidden text-center text-green-600 font-medium py-4">✓ Thanks! We&apos;ll be in touch within 48 hours.</div>
-          <div id="employer-error" class="hidden text-center text-red-500 py-4">Something went wrong. Please try again.</div>
-          <noscript><p class="text-center text-gray">Please enable JavaScript to submit the form, or email us directly.</p></noscript>
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div class="bg-gray-light rounded-3xl p-8 lg:p-12 border border-gray-200/70">
+            <div class="mb-10">
+              <p class="text-sky font-semibold uppercase tracking-widest text-sm mb-4">For Employers</p>
+              <h3 class="text-3xl md:text-4xl font-bold text-dark mb-4">Find AI Talent</h3>
+              <p class="text-lg text-gray">Tell us the problem you&#39;re solving. We&#39;ll handle the rest.</p>
+            </div>
+            <form id="employer-form" class="space-y-4">
+              <input type="text" name="name" placeholder="Your name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+              <input type="text" name="company" placeholder="Company name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+              <input type="email" name="email" placeholder="Work email" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+              <textarea name="message" placeholder="Tell us briefly what you're looking for (optional)" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+              <button type="submit" class="w-full py-4 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors">Find AI Talent →</button>
+            </form>
+            <div id="employer-success" class="hidden text-center text-green-600 font-medium py-4">✓ Thanks! We&apos;ll be in touch within 48 hours.</div>
+            <div id="employer-error" class="hidden text-center text-red-500 py-4">Something went wrong. Please try again.</div>
+            <noscript><p class="text-center text-gray">Please enable JavaScript to submit the form, or email us directly.</p></noscript>
+          </div>
+          <div id="candidates" class="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-sky/20">
+            <div class="mb-10">
+              <p class="text-sky font-semibold uppercase tracking-widest text-sm mb-4">For Candidates</p>
+              <h3 class="text-3xl md:text-4xl font-bold text-dark mb-4">Join the Colab Talent Network</h3>
+              <p class="text-lg text-gray">Register in under 5 minutes. Always free.</p>
+            </div>
+            <form id="candidate-form" class="space-y-4">
+              <input type="text" name="name" placeholder="Your name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+              <input type="email" name="email" placeholder="Email address" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+              <input type="text" name="message" placeholder="Your main AI skill/area (e.g. ML engineering, data science)" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+              <button type="submit" class="w-full py-4 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors">Join the Network →</button>
+            </form>
+            <div id="candidate-success" class="hidden text-center text-green-600 font-medium py-4">✓ You&apos;re on the list! We&apos;ll match you with opportunities as they come in.</div>
+            <div id="candidate-error" class="hidden text-center text-red-500 py-4">Something went wrong. Please try again.</div>
+            <noscript><p class="text-center text-gray">Please enable JavaScript to submit the form, or email us directly.</p></noscript>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== FOR CANDIDATES ==================== -->
-    <section id="candidates" class="py-24 lg:py-32" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);">
-      <div class="max-w-3xl mx-auto px-6">
-        <div class="text-center mb-12">
-          <p class="text-sky font-semibold uppercase tracking-widest text-sm mb-4">For Candidates</p>
-          <h2 class="text-3xl md:text-5xl font-bold text-dark mb-4">Join the Colab Talent Network</h2>
-          <p class="text-xl text-gray">Register in under 5 minutes. Always free.</p>
+    <!-- ==================== PRICING ==================== -->
+    <section class="bg-white py-24 lg:py-32">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sky font-semibold uppercase tracking-widest text-sm mb-4">Pricing</p>
+          <h2 class="text-3xl md:text-5xl font-bold text-dark mb-4">Simple plans for both sides of the marketplace</h2>
+          <p class="text-xl text-gray max-w-3xl mx-auto">Start with a straightforward plan today. Employer pricing is a placeholder until final commercial terms are confirmed.</p>
         </div>
-        <div class="bg-white rounded-2xl p-8 lg:p-12 shadow-sm">
-          <form id="candidate-form" class="space-y-4">
-            <input type="text" name="name" placeholder="Your name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
-            <input type="email" name="email" placeholder="Email address" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
-            <input type="text" name="message" placeholder="Your main AI skill/area (e.g. ML engineering, data science)" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
-            <button type="submit" class="w-full py-4 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors">Join the Network →</button>
-          </form>
-          <div id="candidate-success" class="hidden text-center text-green-600 font-medium py-4">✓ You&apos;re on the list! We&apos;ll match you with opportunities as they come in.</div>
-          <div id="candidate-error" class="hidden text-center text-red-500 py-4">Something went wrong. Please try again.</div>
-          <noscript><p class="text-center text-gray">Please enable JavaScript to submit the form, or email us directly.</p></noscript>
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div class="rounded-3xl border border-gray-200 bg-gray-light p-8 lg:p-10 shadow-sm">
+            <p class="text-sky font-semibold uppercase tracking-widest text-sm mb-4">Employers</p>
+            <div class="flex items-end gap-3 mb-6">
+              <span class="text-5xl font-black text-dark">$199</span>
+              <span class="text-lg text-gray mb-1">/ month</span>
+            </div>
+            <p class="text-gray leading-relaxed mb-8">A sensible starter placeholder for teams hiring AI talent and wanting a dedicated workflow.</p>
+            <ul class="space-y-4 mb-10 text-gray">
+              <li class="flex items-start gap-3"><span class="text-sky font-bold">•</span><span>Post unlimited jobs</span></li>
+              <li class="flex items-start gap-3"><span class="text-sky font-bold">•</span><span>AI-matched candidates</span></li>
+              <li class="flex items-start gap-3"><span class="text-sky font-bold">•</span><span>Dashboard access</span></li>
+              <li class="flex items-start gap-3"><span class="text-sky font-bold">•</span><span>Candidate tracking</span></li>
+            </ul>
+            <a href="#employers" class="inline-flex items-center justify-center w-full px-6 py-4 bg-sky text-white font-semibold rounded-lg hover:bg-sky-light transition-colors">Start Hiring →</a>
+          </div>
+          <div class="rounded-3xl border border-sky/30 bg-gradient-to-br from-sky-50 to-white p-8 lg:p-10 shadow-sm">
+            <p class="text-sky font-semibold uppercase tracking-widest text-sm mb-4">Candidates</p>
+            <div class="flex items-end gap-3 mb-6">
+              <span class="text-5xl font-black text-dark">Free</span>
+              <span class="text-lg text-gray mb-1">forever</span>
+            </div>
+            <p class="text-gray leading-relaxed mb-8">Create a profile, manage your applications, and stay organized as new opportunities open up.</p>
+            <ul class="space-y-4 mb-10 text-gray">
+              <li class="flex items-start gap-3"><span class="text-sky font-bold">•</span><span>Create profile</span></li>
+              <li class="flex items-start gap-3"><span class="text-sky font-bold">•</span><span>Apply to jobs</span></li>
+              <li class="flex items-start gap-3"><span class="text-sky font-bold">•</span><span>Reference management</span></li>
+              <li class="flex items-start gap-3"><span class="text-sky font-bold">•</span><span>Interview tracking</span></li>
+            </ul>
+            <a href="#candidates" class="inline-flex items-center justify-center w-full px-6 py-4 bg-dark text-white font-semibold rounded-lg hover:bg-navy transition-colors">Create Your Profile →</a>
+          </div>
         </div>
       </div>
     </section>
