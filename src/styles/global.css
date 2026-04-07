@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #2E4057;
+  --color-navy-dark: #1a2a3a;
+  --color-sky: #0EA5E9;
+  --color-sky-light: #38bdf8;
+  --color-dark: #1C1917;
+  --color-gray: #78716C;
+  --color-gray-light: #f5f5f4;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-dark);
+}
+
+/* Animated network nodes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.node-float-1 { animation: float 6s ease-in-out infinite; }
+.node-float-2 { animation: float 8s ease-in-out infinite 1s; }
+.node-float-3 { animation: float 7s ease-in-out infinite 2s; }
+.node-pulse { animation: pulse 4s ease-in-out infinite; }
+
+/* Step connector line */
+.step-connector {
+  position: absolute;
+  top: 2rem;
+  left: calc(50% + 2rem);
+  width: calc(100% - 4rem);
+  height: 2px;
+  background: linear-gradient(to right, var(--color-sky), var(--color-sky-light));
+}
