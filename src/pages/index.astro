@@ -231,9 +231,16 @@ import '../styles/global.css';
           <p class="text-xl text-gray">Tell us the problem you&#39;re solving. We&#39;ll handle the rest.</p>
         </div>
         <div class="bg-gray-light rounded-2xl p-8 lg:p-12">
-          {/* HubSpot Employer Form — replace portal/form IDs when ready */}
-          <div id="hubspot-employer-form"></div>
-          <noscript><p class="text-center text-gray">Please enable JavaScript to load the contact form, or email us directly.</p></noscript>
+          <form id="employer-form" class="space-y-4">
+            <input type="text" name="name" placeholder="Your name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+            <input type="text" name="company" placeholder="Company name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+            <input type="email" name="email" placeholder="Work email" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+            <textarea name="message" placeholder="Tell us briefly what you're looking for (optional)" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+            <button type="submit" class="w-full py-4 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors">Find AI Talent →</button>
+          </form>
+          <div id="employer-success" class="hidden text-center text-green-600 font-medium py-4">✓ Thanks! We&apos;ll be in touch within 48 hours.</div>
+          <div id="employer-error" class="hidden text-center text-red-500 py-4">Something went wrong. Please try again.</div>
+          <noscript><p class="text-center text-gray">Please enable JavaScript to submit the form, or email us directly.</p></noscript>
         </div>
       </div>
     </section>
@@ -247,9 +254,15 @@ import '../styles/global.css';
           <p class="text-xl text-gray">Register in under 5 minutes. Always free.</p>
         </div>
         <div class="bg-white rounded-2xl p-8 lg:p-12 shadow-sm">
-          {/* HubSpot Candidate Form — replace portal/form IDs when ready */}
-          <div id="hubspot-candidate-form"></div>
-          <noscript><p class="text-center text-gray">Please enable JavaScript to load the contact form, or email us directly.</p></noscript>
+          <form id="candidate-form" class="space-y-4">
+            <input type="text" name="name" placeholder="Your name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+            <input type="email" name="email" placeholder="Email address" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+            <input type="text" name="message" placeholder="Your main AI skill/area (e.g. ML engineering, data science)" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+            <button type="submit" class="w-full py-4 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-colors">Join the Network →</button>
+          </form>
+          <div id="candidate-success" class="hidden text-center text-green-600 font-medium py-4">✓ You&apos;re on the list! We&apos;ll match you with opportunities as they come in.</div>
+          <div id="candidate-error" class="hidden text-center text-red-500 py-4">Something went wrong. Please try again.</div>
+          <noscript><p class="text-center text-gray">Please enable JavaScript to submit the form, or email us directly.</p></noscript>
         </div>
       </div>
     </section>
@@ -273,26 +286,41 @@ import '../styles/global.css';
       </div>
     </footer>
 
-    <!-- HubSpot Forms -->
-    <script is:inline src="//js.hsforms.net/forms/embed/v2.js" charset="utf-8"></script>
     <script is:inline>
-      if (typeof hbspt !== 'undefined') {
-        hbspt.forms.create({
-          region: "na1",
-          portalId: "EMPLOYER_PORTAL_ID",
-          formId: "EMPLOYER_FORM_ID",
-          target: "#hubspot-employer-form"
+      async function submitInterest(formId, type, successId, errorId) {
+        const form = document.getElementById(formId);
+        const success = document.getElementById(successId);
+        const error = document.getElementById(errorId);
+
+        if (!(form instanceof HTMLFormElement) || !success || !error) return;
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          error.classList.add('hidden');
+
+          const data = Object.fromEntries(new FormData(form));
+
+          try {
+            const res = await fetch('https://colab-talent-api.mail-5bc.workers.dev/api/early-interest', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ ...data, type })
+            });
+
+            if (res.ok) {
+              form.style.display = 'none';
+              success.classList.remove('hidden');
+            } else {
+              error.classList.remove('hidden');
+            }
+          } catch {
+            error.classList.remove('hidden');
+          }
         });
       }
 
-      if (typeof hbspt !== 'undefined') {
-        hbspt.forms.create({
-          region: "na1",
-          portalId: "CANDIDATE_PORTAL_ID",
-          formId: "CANDIDATE_FORM_ID",
-          target: "#hubspot-candidate-form"
-        });
-      }
+      submitInterest('employer-form', 'employer', 'employer-success', 'employer-error');
+      submitInterest('candidate-form', 'candidate', 'candidate-success', 'candidate-error');
     </script>
 
   </body>
